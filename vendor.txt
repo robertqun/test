@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>爱点网 - 产品积分管家</title>
+<meta name="keywords" content="爱点网,积分商城,积分兑换,有奖促销">
+<meta name="description" content="爱点网（www.apoint.cn）是一个专注于提供市场数据管理服务的公共信息平台。它为企业提供包括产品有奖促销、定位促销和精细化客户关系管理在内的多种数据管理服务，并为消费者营造一种全新的购物体验环境。">
+<link rel="stylesheet" href="/Public/Css/common.css">
+<link rel="stylesheet" href="/Public/Css/index.css">
+<link rel="stylesheet" href="/Public/Css/dialog.css">
+<style type="text/css">
+.input-field{color:#fff; font-size:14px;}
+.input_kuang{ -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;display:inline; height:20px; padding:4px; font-size:14px; border:1px solid #e3e3e3; border-top:1px solid #ccc; color:#a6a6a6;width:180px;background:#fff url(/Public/Images/s_bgs.png) 0 -118px repeat-x; box-shadow:0 1px 1px #fff;float:right; margin-right:-4px;}
+.val_m{vertical-align:middle;}
+.cha{
+  height:31px;
+  text-align: right;
+  float:right;
+  display:inline;
+}
+.cha span{
+  width: 100px;
+  height: 31px;
+  border: 0;
+  outline:0;
+  display: inline-block;
+  background: url(/Public/Images/queryBtn.gif) no-repeat top;
+  text-align: center; 
+  font-weight: bold;
+  vertical-align: top;
+  line-height: 31px;
+  font-size: 14px;
+  color:#FFFFFF;
+  cursor: pointer;
+   -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;
+}
+.cha span:hover{
+	background-position:bottom;
+}
+#codeinfo{font-size:18px;color:#fff; float:right; margin-right:10px;height:30px; line-height:30px;}
+.veridiv{position:absolute;top:112px;display:none;margin-left:314px;width:188px;height:35px;padding-top:5px; border:#ccc 1px solid; background:#fff;}
+.smVerify{margin-left:13px; position:relative;float:left;}
+</style>
+</head>
+
+<body>
+<div id="wp">
+	<div id="logo"><a href="/"><img src="/Public/Images/logo.gif" alt="爱点网"></a></div>
+    <div id="query">
+    	<div class="input-field">
+			<div class="cha"><span id="queryBtn">查 询</span></div> <input style="width:70px;display:none" type="text" class="input_kuang val_m" id="pwd" maxlength="6" value="复查密码" autocomplete="off"> <input type="text" class="input_kuang val_m" id="code" maxlength="16" value="请输入数码" autocomplete="off">
+            <div class="veridiv">
+            	<img id="vcode" src="/Base/verify_code/h/30/l/4/n/smVerify.html" onclick="this.src+='?rand='+Math.random();" style="cursor: pointer; vertical-align: middle; float:left; margin-left:10px;" oldtitle="看不清？单击此处刷新" title="" data-hasqtip="true">&nbsp;&nbsp;<input style="width:95px" type="text" id="smVerify" class="input_kuang val_m smVerify" maxlength="4" value="请输入验证码">
+            </div>
+            <span id="codeinfo"></span>
+		</div>
+    </div>
+    <div class="c"></div>
+	<div id="bd" class="fix">
+		<ul class="ul_pic fix">
+			<li id="login"><a href="javascript:void(0)" class="login" oldtitle="会员首页" title="" data-hasqtip="true"></a></li>
+			<li><a href="/Shop/index.html" class="shop" oldtitle="积分商城" title="" data-hasqtip="true"></a></li>
+			<li><a href="javascript:void(0)" class="wlquery" oldtitle="窜货监控" title="" data-hasqtip="true"></a></li>
+			<li><a href="javascript:void(0)" class="qudao" oldtitle="渠道返利" title="" data-hasqtip="true"></a></li>
+			<li><a href="/News/index.html" class="news" oldtitle="新闻资讯" title="" data-hasqtip="true"></a></li>
+			<li><a href="/Love/index.html" class="love" oldtitle="爱心捐助" title="" data-hasqtip="true"></a></li>
+			<li><a href="#" class="green" oldtitle="等待添加中.." title="" data-hasqtip="true"></a></li>
+			<li><a href="javascript:void(0)" class="tihuo" oldtitle="提货券" title="" data-hasqtip="true"></a></li>
+		</ul>
+	</div>
+	<div id="fd">
+		<p>© 2007－2018 APOINT.CN, All Rights Reserved 南京爱点科技有限公司 版权所有 <a href="http://www.miitbeian.gov.cn" target="_blank">苏ICP备08007392号</a></p>
+	</div>
+</div>
+<!--<div id="topbar" style="display: none;">
+		系统升级通知：本站将于2014年5月20日进行系统升级，升级当日暂停服务。带来不便敬请谅解！ <span style="font-size: small; cursor:pointer">（知道了）</span>
+	</div>-->
+<script type="text/javascript" src="/Public/Js/jquery.js"></script>
+<script type="text/javascript" src="/Public/Js/common.js"></script>
+<script type="text/javascript" src="/Public/Js/user.js"></script>
+<script type="text/javascript" src="/Public/Js/dialog.js"></script>
+<script type="text/javascript" src="/Public/Js/jquery.qtip.min.js"></script>
+<script type="text/javascript" src="/Public/Js/jquery.topbar.js"></script>
+<script type="text/javascript">
+//$('#topbar').showTopbarMessage({ background: "rgb(248,82,6)", foreColor: "#fff",height: "40px",fontSize: "16px"});
+
+var APP='';
+function showDialog(url){
+//	var height = $(window).height()-75;
+//	var width = $(window).width()-50;
+	var width = 960;
+	var height = 560;
+	$.dialog('&nbsp;欢迎访问爱点网^_^','<div style="height:'+height+'px;"><iframe name="regiframe" src="'+url+'" width="100%" height="'+height+'px" scrolling="auto" frameborder="0"></iframe></div>',width,true,true);
+	$('#appsdialogcontent').css('padding','0');
+	$('body').keydown(function(e){
+		e = e||event;  
+		if(e.keyCode==13) $('.sub_login input',window.frames["regiframe"].document).click();
+	});
+}
+
+function querycheck(obj,code,opid,nums) {
+	var s1,sresult="";
+	var aa=nums/4;
+	for (i=1;i<=aa;i++){
+	  s1=code.substring(0,4);
+	  sresult=sresult+s1+"  ";
+	  code=code.substring(4,nums);
+	  if(code.length==0) break;  
+	}
+ 	$('#'+opid).html(sresult);
+}
+
+
+$(function(){
+	updateuser();
+	$('[title]').qtip();
+	
+	$("#changeVcode").click(function(){
+		$("#vcode").click();	
+	});
+	
+	$('#code').focus(function(){
+		$(this).css({'color':'#000','font-weight':'bold'});
+		if($(this).val()=='请输入数码') $(this).val('');
+		$('.veridiv').slideDown('fast');
+	}).blur(function(){
+		if($(this).val()==''){
+			$(this).css({'color':'#a6a6a6','font-weight':'normal'}).val('请输入数码');
+			$('.veridiv').slideUp('fast');
+		}
+	}).keyup(function(){
+		$(this).val($(this).val().replace(/[^\d,x,X]/g,''));
+		querycheck('code',this.value,'codeinfo',16);
+	});
+	$('#pwd').focus(function(){
+		$(this).css({'color':'#000','font-weight':'bold'});
+		if($(this).val()=='复查密码') $(this).val('');
+	}).blur(function(){
+		if($(this).val()==''){
+			$(this).css({'color':'#a6a6a6','font-weight':'normal'}).val('复查密码');
+		}
+	});
+	$('#smVerify').focus(function(){
+		$(this).css({'color':'#000','font-weight':'bold'});
+		if($(this).val()=='请输入验证码') $(this).val('');
+	}).blur(function(){
+		if($(this).val()==''){
+			$(this).css({'color':'#a6a6a6','font-weight':'normal'}).val('请输入验证码');
+		}
+	})
+	$('#queryBtn').click(function(){
+		var code=$('#code').val();
+		var smVerify=$('#smVerify').val();		
+		if(code=='请输入数码' || code==''){
+			$('#code').focus();
+			return false;	
+		}
+		if(smVerify=='请输入验证码' || smVerify==''){
+			$('#smVerify').focus();
+			return false;	
+		}
+		$.ajax({
+			url: APP+"/Query/newquerycode/",
+			type: "POST",
+			data: {code:code,smVerify:smVerify,c:'apoint'},
+			cache: false,
+			dataType: "json",
+			beforeSend: function(XMLHttpRequest){
+				var url="/Index/smquery.html";
+				$.dialog('&nbsp;数码查询','<div style="height:340px;"><iframe name="smiframe" src="'+url+'" width="100%" height="340px" scrolling="auto" frameborder="0"></iframe></div>',560,true,true);
+				$('#appsdialogcontent').css('padding','0');
+				$('#queryWait',window.frames["smiframe"].document).show();
+			},
+			success: function (data) {
+				$('#qcode',window.frames["smiframe"].document).val(code);
+				$('#comid',window.frames["smiframe"].document).val(data.comid);
+				$('#pdcid',window.frames["smiframe"].document).val(data.pdcid);
+				$('#queryWait',window.frames["smiframe"].document).hide();
+				var imgpath='/Public/Images/';
+				var statimg='<img src="'+imgpath+'stat'+data.type+'.png" align="absmiddle" style="float:left;margin-right:10px;">';
+				$('.smres',window.frames["smiframe"].document).html(statimg+data.result);
+				var type=data.type;
+				$('#reQuery',window.frames["smiframe"].document).show();
+				$('#reQueryBtn',window.frames["smiframe"].document).click(function(){
+					$.dialog.close();
+					$('#code').focus().val('');
+					$('#smVerify').val('');
+					$("#vcode").click();
+				});
+				if(type!='2'){
+					$("#vcode").click();	
+				}
+				if(type=='1'){ //首查
+					if(data.point!=0) $('.smres',window.frames["smiframe"].document).append('恭喜您获得奖励'+data.point+'积分！累积积分，兑换好礼哦！');
+					$("#vcode").click();
+					$('#userMobile',window.frames["smiframe"].document).show();
+				}
+				else if(type=='2'){ //复查
+					$('#pwd').show();
+					$('.veridiv').css('margin-left','238px');	
+				}
+			}
+		});
+	});
+	
+	$('.wlquery').click(function(){
+		var url="/Index/wlquery.html";
+		$.dialog('&nbsp;窜货监控','<div style="height:340px;"><iframe name="wliframe" src="'+url+'" width="100%" height="340px" scrolling="auto" frameborder="0"></iframe></div>',560,true,true);
+		$('#appsdialogcontent').css('padding','0');
+	});
+	
+	$('.qudao').click(function(){
+		var url="/Rebate/index.html";
+		$.dialog('&nbsp;渠道返利','<div style="height:340px;"><iframe name="qdiframe" src="'+url+'" width="100%" height="340px" scrolling="auto" frameborder="0"></iframe></div>',560,true,true);
+		$('#appsdialogcontent').css('padding','0');
+	});
+	
+	$('.tihuo').click(function(){
+		var url="/Voucher/index.html";
+		$.dialog('&nbsp;提货券','<div style="height:340px;"><iframe name="qdiframe" src="'+url+'" width="100%" height="340px" scrolling="auto" frameborder="0"></iframe></div>',560,true,true);
+		$('#appsdialogcontent').css('padding','0');
+	});
+
+	var reg=0;
+	if(reg==-1){
+		var url = "/User/login.html";
+		showDialog(url);
+		$('#login').click(function(){
+			showDialog(url);	
+		});
+	}
+	else if(reg==0){
+		var url = "/User/login.html";
+		var islogin=getCookie('ap_islogin');
+		if(!islogin){
+			$('#login').click(function(){
+				showDialog(url);	
+			});
+		}
+		else{
+			$('#login a').removeClass('login').addClass('login2');	
+			$('#login').click(function(){
+				window.location.href="/User/index.html";	
+			});
+		}
+	}
+	else if(reg==1){
+		var url = "/User/actmember.html";
+		showDialog(url);
+		$('#appsdialogclose').hide();	
+	}
+	else{
+		var url = "/User/setpwd.html";
+		showDialog(url);
+		var url = "/User/login.html";
+		$('#login').click(function(){
+			showDialog(url);	
+		});
+	}
+});
+</script>
+<!--统计代码-->
+<span class="dn"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cdiv id='cnzz_stat_icon_5641700'%3E%3C/div%3E%3Cscript src='" + cnzz_protocol + "s9.cnzz.com/stat.php%3Fid%3D5641700%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script><div id="cnzz_stat_icon_5641700"><a href="http://www.cnzz.com/stat/website.php?web_id=5641700" target="_blank" oldtitle="站长统计" title="" data-hasqtip="true"><img border="0" hspace="0" vspace="0" src="http://icon.cnzz.com/img/pic.gif"></a></div><script src=" http://s9.cnzz.com/stat.php?id=5641700&amp;show=pic" type="text/javascript"></script><script src="http://c.cnzz.com/core.php?web_id=5641700&amp;show=pic&amp;t=z" charset="utf-8" type="text/javascript"></script></span>
+
+</body></html>
